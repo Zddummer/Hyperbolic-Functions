@@ -1,0 +1,209 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+
+\title{Hyperbolic Functions}
+\author{Zach Dummer }
+\date{December 10, 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Certain numbers, functions, and patterns show up very frequently in mathematics. So frequently that they are often given their own name such as pi which is denoted with the symbol $\pi$. The same can be said for certain functions. In this paper specifically I'm going to talk about the hyperbolic functions. In many ways these functions are similar to the trigonometric functions. They have the same relationship to the hyperbola that the trig functions have to the circle. So what does this mean? Well consider $x = \cosh{t}$ and $y = \sinh{t}$ then $\forall t \in{\rm I\!R}$, the coordinates $(x,y)$ traces the curve $x^2 - y^2 = 1$, which is a hyperbola. The trig functions do something very similar. If $x = \cos{t}$ and $y = \sin{t}$, the coordinates $(x, y)$ trace out a circle. They are even given similar names like hyperbolic sine and hyperbolic cosine denoted $\sinh(x)$ and $\cosh(x)$ respectively.
+
+\begin{center}
+{\bf Definitions of the Hyperbolic Functions:}
+\end{center}
+
+\[\sinh{x} = \frac{e^x - e^{-x}}{2} \hspace{100pt} \csch{x} = \frac{1}{\sinh{x}}\]
+
+\[\cosh{x} = \frac{e^x + e^{-x}}{2} \hspace{100pt} \sech{x} = \frac{1}{\cosh{x}}\]
+
+\[\tanh{x} = \frac{\sinh{x}}{\cosh{x}} \hspace{100pt} \coth{x} = \frac{\cosh{x}}{\sinh{x}}\]
+
+\section{Manipulating Hyperbolic Functions}
+We know from trigonometry that $\sin{(x + y)} = \sin{x} \cos{y} + \cos{x} \sin{y}$. Earlier I said that Hyperbolic functions have similar properties to these trig functions and bare the same relation ship to a hyperbola that trig functions do to a circle. So does that mean that $\sinh{(x + y)} = \sinh{x} \cosh{y} + \cosh{x} \sinh{y}$? In fact it does, and here is how:\[\]
+First we'll start by substituting $x$ from the above definition of for $(x + y)$.
+\[\sinh{(x + y)} = \frac{e^{x + y} - e^{-x - y}}{2}\]
+Next we'll multiply the numerator and denominator of the right side of the equation by 2 ($\frac{2}{2}$ = 1).
+\[ = \frac{2e^{x + y} - 2e^{-x - y}}{4}\]
+Then we'll add ($e^{x - y} - e^{y -x}$) then subtract ($e^{x - y} - e^{y -x}$) to the numerator of the right side of the equation which is the same as adding 0, so the value of the equation does not change.
+\[ = \frac{2e^{x + y} + (e^{x - y} - e^{y -x}) - (e^{x - y} - e^{y -x}) - 2e^{-x - y}}{4}\]
+Now we can separate and move around terms in the numerator which will make then next step a little easier to follow.
+\[ = \frac{(e^{x + y} + e^{x - y}- e^{-x - y} - e^{y - x}) + (e^{x + y}- e^{x - y} + e^{y - x} - e^{-x - y})}{4}\]
+We can now split this up.
+\[ = \frac{e^{x + y} + e^{x - y}- e^{-x - y} - e^{y - x}}{4} + \frac{e^{x + y}- e^{x - y} + e^{y - x} - e^{-x - y}}{4}\]
+Using rules of exponents like $a^{m+n} = (a^m)(a^n)$ we can separate these terms again.
+\[ = \left(\frac{e^x - e^{-x}}{2}\right)\left(\frac{e^y + e^{-y}}{2}\right) + \left(\frac{e^x + e^{-x}}{2}\right)\left(\frac{e^y - e^{-y}}{2}\right)\]
+Finally we can use the definitions given in the introduction to rewrite the final product as:
+\[\sinh{(x + y)} = \sinh{x} \cosh{y} + \cosh{x} \sinh{y}\]
+Here is a table to compare some main trig identities to the hyperbolic identities.
+\begin{center}
+\renewcommand{\arraystretch}{3}
+\begin{tabular}{ |c|c| } 
+ \hline
+ $\sinh{(x + y)} = \sinh{x} \cosh{y} + \cosh{x} \sinh{y}$ & $\sin{(x + y)} = \sin{x} \cos{y} + \cos{x} \sin{y}$ \\ 
+ \hline
+ $\cosh{(x + y)} = \cosh{x} \cosh{y} + \sinh{x} \sinh{y}$ & $\cos{(x + y)} = \cos{x} \cos{y} + \sin{x} \sin{y}$ \\ 
+ \hline
+ $\tanh{(x + y)}$ = \Large$\frac{\tanh{x} + \tanh{y}}{1 + \tanh{x}\tanh{y}}$ & $\tan{(x + y)}$ = \Large$\frac{\tan{x} + \tan{y}}{1 + \tan{x}\tan{y}}$ \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+One way these functions differ is when taking their derivatives. Recall that when we take the first derivative of the cosine function we get $(\cos{x})' = -\sin{x}$. So we might ask the question is the the same for the hyperbolic function? well... no actually. When we do the math we find out that $(\cosh{x})' = \sinh{x}$. This is why:
+\begin{align} \nonumber
+(\cosh{x})' &= \left(\frac{e^x + e^{-x}}{2}\right)'\\ \nonumber
+ &= \frac{1}{2}(e^x + e^{-x})'\\ \nonumber
+ &= \frac{1}{2}\left((e^x)' + (e^{-x})'\right)\\ \nonumber
+ &= \frac{1}{2}(e^x + (-1)e^{-x})\\ \nonumber
+ &= \frac{1}{2}(e^x - e^{-x})\\ \nonumber
+ &= \frac{e^x - e^{-x}}{2} = \sinh{x}\\ \nonumber
+\end{align}
+Now lets use what we just proved above to show that $(\sech{x})' = -\sech{x} \tanh{x}$.
+\begin{align} \nonumber
+(\sech{x})' &= \left(\frac{1}{\cosh{x}} \right)'\\ \nonumber
+ &= -\frac{1}{\cosh^2{x}}\cdot(\cosh{x})'\\ \nonumber
+ &= -\frac{1}{\cosh^2{x}}\cdot\sinh{x}\\ \nonumber
+ &= -\frac{1}{\cosh{x}}\cdot\frac{\sinh{x}}{\cosh{x}}\\ \nonumber
+ &= -\sech{x} \tanh{x}\\ \nonumber
+\end{align}
+Here is a complete table of the derivatives of the hyperbolic functions:
+\begin{center}
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{ |c|c| } 
+ \hline
+  $(\sinh{x})' = \cosh{x}$ & $(\csch{x})' = -\csch{x}\coth{x}$  \\ 
+ \hline
+  $(\cosh{x})' = \sinh{x}$ & $(\sech{x})' = -\sech{x}\tanh{x}$  \\ 
+ \hline
+  $(\tanh{x})' = \sech^2{x}$ & $(\coth{x})' = -\csch^2{x}$  \\ 
+ \hline
+\end{tabular}
+\end{center}
+\newpage
+Using the principles of physics (Newton$'$s Laws), it can be shown that when a cable (a flexible chain) is hung between two poles, it takes the shape of a curve $y = f(x)$ that is known as a catenary. The function $y = f(x)$, whose graph describes the catenary, satisfies the diﬀerential equation:
+\[\frac{d^2y}{dx^2} = \frac{\rho g}{T}\sqrt{1 + \left(\frac{dy}{dx}\right)^2}\]
+where
+\newline
+$\bullet$ $\rho$ is the linear density of the cable
+\newline
+$\bullet$ $g$ is the acceleration due to gravity
+\newline
+$\bullet$ $T$ is the tension in the cable at its lowest point, and
+\newline
+$\bullet$ the coordinate system is chosen appropriately
+\newline
+
+Using this information let's verify the function $y = \frac{T}{\rho g}\cosh{\left(\frac{\rho gx}{T}\right)}$ is a solution of this differential equation. How do we start? Well first I think it's important not to get bogged down in variables. Notice that $\rho$, $g$, and $T$ are all constants. So when finding derivatives we can treat them like any other constant (i.e. 5, $\pi$, etc.). Lets start by taking the first and second derivatives of our equation $y = \frac{T}{\rho g}\cosh{\left(\frac{\rho gx}{T}\right)}$.
+\begin{align} \nonumber
+\frac{dy}{dx} &= \frac{d}{dx}\left( \frac{T}{\rho g}\cosh{\left( \frac{\rho gx}{T}\right)} \right)\\ \nonumber
+&= \frac{T}{\rho g} \cdot \frac{d}{dx}\left( \cosh{\left( \frac{\rho gx}{T}\right)} \right)\\ \nonumber
+&= \frac{T}{\rho g} \cdot \sinh{\left( \frac{\rho gx}{T} \right)} \cdot\frac{\rho g}{T}\\ \nonumber
+&= \sinh{\left( \frac{\rho gx}{T} \right)}\\ \nonumber  
+\end{align}
+
+Now that we have the first derivative we can plug that into our differential equation later, but first lets find the second derivative so we have something to compare what we get out of that differential equation when we do plug in the first derivative.
+\begin{align} \nonumber
+\frac{d^2y}{dx^2} &= \frac{d}{dx}\left( \sinh{\left( \frac{\rho gx}{T}\right)}\right)\\ \nonumber
+&= \cosh{\left( \frac{\rho gx}{T}\right)} \cdot \frac{d}{dx}\left( \frac{\rho gx}{T} \right)\\ \nonumber
+&= \cosh{\left( \frac{\rho gx}{T}\right)} \cdot \left( \frac{\rho g}{T} \right)\\ \nonumber
+&= \frac{\rho g}{T} \cosh{\left( \frac{\rho gx}{T}\right)}\\ \nonumber
+\end{align}
+So now that we know what the second derivative of our starting equation is, we know what answer we should get when we plug the first derivative into the differential equation.
+\newline
+\newline
+claim: \[\frac{\rho g}{T}\sqrt{1 + \left(\sinh{\left( \frac{\rho gx}{T} \right)}\right)^2} = \frac{\rho g}{T} \cosh{\left( \frac{\rho gx}{T}\right)}\]
+\newline
+proof: 
+\begin{align} \nonumber
+\frac{\rho g}{T}\sqrt{1 + \left(\sinh{\left( \frac{\rho gx}{T} \right)}\right)^2} &= \frac{\rho g}{T}\sqrt{1 + \sinh^2{\left( \frac{\rho gx}{T} \right)}}\\ \nonumber
+ &= \frac{\rho g}{T}\sqrt{cosh^2{\left( \frac{\rho gx}{T} \right)}}\\ \nonumber
+ &= \frac{\rho g}{T}cosh{\left( \frac{\rho gx}{T} \right)}
+\end{align}
+Which was what we wanted.
+
+\section{Applying Hyperbolic Functions}
+
+Consider a flexible chain of length $L$ suspended between two poles of equal height separated by a distance of $2M$. As we discussed towards the end of the last sections, the curve is catenary described by $y = a \cosh{\frac{M}{a}}$. Where $a$ is the number such that $L = 2a\sinh{\frac{M}{a}}$. The constant $a$ in this problem is the same as $\frac{T}{\rho g}$ in the last section. In this problem, $a$ is expressed implicitly in terms of $M$ and $L$. The sag $s$ is the vertical distance from the highest to lowest point on the chain.
+\newline
+\newline
+Lets assume $M$ is fixed. \\
+\indent First, Lets calculate $\frac{ds}{da}$, noting that $s = a\cosh{\frac{M}{a}} - a$ \\
+\begin{align} \nonumber
+\frac{ds}{da} &= \frac{d}{da}\left( a \cosh{\frac{M}{a}} - a\right) \\ \nonumber
+&= \frac{d}{da}\left( a \cosh{\frac{M}{a}}\right) - \frac{d}{da} \left(a\right) \\ \nonumber
+&= \left(a' \cosh{\frac{M}{a}} + a \left(\cosh{\frac{M}{a}}\right)' \right) - 1 \\ \nonumber
+&= \cosh{\frac{M}{a}} + a \sinh{\frac{M}{a}}\left( \frac{M}{a} \right)' -1 \\ \nonumber
+&= \cosh{\frac{M}{a}} - \frac{M a \sinh{\frac{M}{a}}}{a^2} -1 \\ \nonumber
+&= \cosh{\frac{M}{a}} - \frac{M \sinh{\frac{M}{a}}}{a} -1 \\ \nonumber
+&= \cosh{\frac{M}{a}} - \frac{M}{a} \sinh{\frac{M}{a}} -1 \\ \nonumber
+\end{align}
+
+\indent Next we'll find $\frac{da}{dL}$ by implicitly differentiating $L = 2a\sinh{\frac{M}{a}}$ \\
+\begin{align} \nonumber
+L = 2a\sinh{\frac{M}{a}} \implies \frac{da}{dL}(L) &= \frac{da}{dL}\left( 2a \sinh{\frac{M}{a}} \right) \\ \nonumber
+1 &= 2\left(\frac{da}{dL}(a) \sinh{\frac{M}{a}} + a \cdot \frac{da}{dL}\left( \sinh{\frac{M}{a}}\right)\right) \\ \nonumber
+1 &= 2\left(a' \sinh{\frac{M}{a}} + a \cdot \left( \cosh{\frac{M}{a}}\right) \cdot \left(\frac{M}{a}\right)'\right) \\ \nonumber
+1 &= 2\left(a' \sinh{\frac{M}{a}} + a \cdot \left( \cosh{\frac{M}{a}}\right) \cdot \left(-\frac{M}{a^2}\right) \cdot a'\right) \\ \nonumber
+1 &= 2\left(a' \sinh{\frac{M}{a}} - \frac{Maa'\cosh{\frac{M}{a}}}{a^2}\right) \\ \nonumber
+1 &= 2\left(a' \sinh{\frac{M}{a}} - \frac{Ma'\cosh{\frac{M}{a}}}{a}\right) \\ \nonumber
+1 &= 2\left(a' \sinh{\frac{M}{a}} - \frac{M}{a}a'\cosh{\frac{M}{a}}\right) \\ \nonumber
+\frac{1}{2} &= \left(a' \sinh{\frac{M}{a}} - \frac{M}{a}a'\cosh{\frac{M}{a}}\right) \\ \nonumber
+\frac{1}{2} &= a'\left(\sinh{\frac{M}{a}} - \frac{M}{a}\cosh{\frac{M}{a}}\right) \\ \nonumber
+a' &= \frac{1}{2\left(\sinh{\frac{M}{a}} - \frac{M}{a}\cosh{\frac{M}{a}}\right)} \\ \nonumber
+\frac{da}{dL} &= \frac{1}{2\sinh{\frac{M}{a}} - 2\frac{M}{a}\cosh{\frac{M}{a}}}
+\end{align}
+
+\indent Now that we have found $\frac{ds}{da}$ and $\frac{da}{dL}$ when can use the chain rule to calulate $\frac{ds}{dL}$ with some simple multiplication.
+\begin{align} \nonumber
+\frac{ds}{dL} &= \frac{ds}{da} \cdot \frac{da}{dL} \\ \nonumber
+&= \left(\cosh{\frac{M}{a}} - \frac{M}{a} \sinh{\frac{M}{a}} -1\right) \cdot \frac{1}{\left(2\sinh{\frac{M}{a}} - 2\frac{M}{a}\cosh{\frac{M}{a}}\right)} \\ \nonumber
+&= \frac{\cosh{\frac{M}{a}} - \frac{M}{a} \sinh{\frac{M}{a}} -1}{2\sinh{\frac{M}{a}} - 2\frac{M}{a}\cosh{\frac{M}{a}}}
+\end{align}
+\newpage
+
+\noindent Suppose the $L = 160$ and $M = 50$ are fixed. \\
+\indent We can use Newton's Method to find a value $a$(to two decimal places) satisfying $L = 2a\sinh{\frac{M}{a}}$.
+\begin{align} \nonumber
+L = 2a\sinh{\frac{M}{a}} \implies 160 &= 2a\sinh{\frac{50}{a}} \\ \nonumber 
+\end{align}
+Let $f(x) = 2a\sinh{\frac{50}{a}} - 160$. then we get that $f'(x) = 2\left( \sinh{\frac{50}{a}} - \frac{50\cosh{\frac{50}{a}}}{a} \right)$.
+Using Newton's method we can dial in a value for $a$. When we look at the graph it appears that the a value we need is somewhere between 28 and 29 so lets start with $a_1 = 29$. Then
+\begin{align} \nonumber
+a_2 &= a_1 - \frac{f(a_1)}{f'(a_1)} \\ \nonumber
+&= 29 - \frac{29\sinh{\frac{50}{29}} - 80}{\sinh{\frac{50}{29}} - \frac{50\cosh{\frac{50}{29}}}{29}}\\ \nonumber
+&\approx 28.439 \\ \nonumber
+\end{align}
+Let's try to get accurate up to 2 decimals. To do that we need to keep using Newton's Method until we get the same numbers up to a certain decimal place, after multiple tries. So if we were to get 28.43... after another use of Newton's method, we would say that the number has stabilized up to two decimal places.
+\begin{align} \nonumber
+a_3 &= a_2 - \frac{f(a_2)}{f'(a_2)} \\ \nonumber
+&= 28.439 - \frac{28.439\sinh{\frac{50}{28.439}} - 80}{\sinh{\frac{50}{28.439}} - \frac{50\cosh{\frac{50}{28.439}}}{28.439}}\\ \nonumber
+&\approx 28.45795 \\ \nonumber
+\end{align}
+So now that we've gotten 28.4... twice in a row we can say that it has stabilized up to the point so we are accurate up to one decimal place.
+\begin{align} \nonumber
+a_4 &= a_3 - \frac{f(a_3)}{f'(a_3)} \\ \nonumber
+&= 28.45795 - \frac{28.45795\sinh{\frac{50}{28.45795}} - 80}{\sinh{\frac{50}{28.45795}} - \frac{50\cosh{\frac{50}{28.45795}}}{28.45795}}\\ \nonumber
+&\approx 28.45798 \\ \nonumber
+\end{align}
+So by going up to $a_4$ we actually got 28.45798 which is accurate up to 4 decimal places. Two more decimal places than we were looking for. I should note that where you start with your $a_1$ does matter. You could end up having to do many many more iterations before you are able to get an accurate answer, or worse you could end up getting wrong answers infinitely.
+\newline
+\newline
+Finally lets estimate change in sag $\Delta s$, for changes in length $\Delta L$, then compare those estimates with actual numerical values. So we know that the change in $s, \Delta s = s(L) - s(a)$ and changes in $L, \Delta L = L - a$. So how can we use this with linearization to find the change in $s$? Well lets look at the general equation for linearization and manipulate it to fit what we want, keeping in mind that $L(x) \approx f(x)$.
+\begin{align} \nonumber
+    L(x) &= f(a) + f'(a)(x-a)\\ \nonumber
+    L(x)- f(a) &= f'(a)(x-a)\\ \nonumber
+    f(x) - f(a) &= f'(a)(x-a)\\ \nonumber
+    \Delta f &= f'(a) \cdot \Delta x\\ \nonumber
+\end{align}
+So for our specific case we have $\Delta s = s'(a) \cdot \Delta L$ where
+\[s'(a) = \frac{\cosh{\frac{M}{a}} - \frac{M}{a} \sinh{\frac{M}{a}} -1}{2\sinh{\frac{M}{a}} - 2\frac{M}{a}\cosh{\frac{M}{a}}}\]
+With this we can estimate that $\Delta s$ when $\Delta L = 5$ will be 5 times greater than when $\Delta L = 1$. Lets plug in numbers to find out. when $L = 160$ so no change in $L$, $a = 28.458$ which we proved earlier. When $a = 28.458, s = 56.455$ When $L = 161$ so $\Delta L = 1, a = 28.255$ and $s = 57.059$. $\Delta s = s(161) - s(160) = 0.604$. When we do the same thing for $\Delta L = 5$ we get that $\Delta s = 3.012$ and $\frac{3.012}{5} = 0.602$ Which is indeed very close 2 5 times the change in $s$.
+
+\end{document}
